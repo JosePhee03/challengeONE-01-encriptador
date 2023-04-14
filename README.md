@@ -1,12 +1,12 @@
-# Alura - Challenge ONE 
+# Alura - Challenge ONE
 
 ![Logo](./assets/alura-challenge.png)
 
 ## 📚 Sprint 01: Construye un encriptador de texto con Javascript
 
-
 ### Descripción
-Las *"llaves"* de encriptación que utilizaremos son las siguientes:
+
+Las _"llaves"_ de encriptación que utilizaremos son las siguientes:
 
 `La letra "e" es convertida para "enter"`
 
@@ -28,10 +28,9 @@ Las *"llaves"* de encriptación que utilizaremos son las siguientes:
 
 - Por ejemplo:
 
-    `"gato" => "gaitober"`
+  `"gato" => "gaitober"`
 
-    `"gaitober" => "gato"`
-
+  `"gaitober" => "gato"`
 
 - La página debe tener campos parainserción del texto que será **encriptado** o **desencriptado**, y el usuario debe poder escoger entre as dos opciones.
 
