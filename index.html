@@ -1,15 +1,80 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Oleo+Script:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
     <title>Cripter</title>
-</head>
-<body>
-    
-    
-
-
-</body>
+  </head>
+  <body>
+    <main>
+      <header>
+        <span class="logo">
+          <img
+            class="logo-img"
+            src="assets/icons/pigeon.svg"
+            alt="Logo de Cripter"
+          />
+          <h1>Cripter</h1>
+        </span>
+      </header>
+      <section>
+        <article class="card card-message">
+          <header>
+            <div class="header-left">
+              <h2>Mensaje</h2>
+              <span class="alert-message">
+                <img src="assets/icons/alert.svg" alt="Icono de Alerta" />
+                <h6>Solo letras minúsculas y sin acentos</h6>
+              </span>
+            </div>
+            <button id="button-trash" title="Borrar todo">
+              <img src="assets/icons/trash.svg" alt="icono de basura" />
+            </button>
+          </header>
+          <textarea
+            name="message"
+            id="text-message"
+            cols="30"
+            rows="10"
+            placeholder="Escriba su mensage aquí"
+          ></textarea>
+        </article>
+        <article class="card card-crypted-message">
+          <header>
+            <div class="select-box">
+              <select name="select-options" id="select-id">
+                <option value="encrypt">Encriptar</option>
+                <option value="decrypt">Desencriptar</option>
+              </select>
+              <img src="assets/icons/arrow-down.svg" alt="Icono de flecha" />
+            </div>
+            <button id="button-copy" title="Copiar texto">
+              <img
+                src="assets/icons/clipboard-copy.svg"
+                alt="Icono de copiar"
+              />
+            </button>
+          </header>
+          <textarea
+            name="crypted-message"
+            id="text-crypted"
+            cols="30"
+            rows="10"
+            disabled
+          ></textarea>
+        </article>
+      </section>
+      <footer>
+        <a href="https://github.com/JosePhee03" title="Ir a GitHub"
+          >JosePhee03 - GitHub</a
+        >
+      </footer>
+    </main>
+  </body>
 </html>
