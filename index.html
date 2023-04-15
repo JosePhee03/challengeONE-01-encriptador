@@ -8,12 +8,12 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Oleo+Script:wght@700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="src/styles.css" />
     <title>Cripter</title>
   </head>
   <body>
     <main>
-      <header>
+      <header class="header-logo">
         <span class="logo">
           <img
             class="logo-img"
@@ -40,20 +40,17 @@
           <textarea
             name="message"
             id="text-message"
-            cols="30"
-            rows="10"
             placeholder="Escriba su mensage aquí"
           ></textarea>
         </article>
         <article class="card card-crypted-message">
           <header>
-            <div class="select-box">
-              <select name="select-options" id="select-id">
+            <label class="select-box" form="select-input">
+              <select name="select-options" id="select-input">
                 <option value="encrypt">Encriptar</option>
                 <option value="decrypt">Desencriptar</option>
               </select>
-              <img src="assets/icons/arrow-down.svg" alt="Icono de flecha" />
-            </div>
+            </label>
             <button id="button-copy" title="Copiar texto">
               <img
                 src="assets/icons/clipboard-copy.svg"
@@ -61,20 +58,31 @@
               />
             </button>
           </header>
-          <textarea
-            name="crypted-message"
-            id="text-crypted"
-            cols="30"
-            rows="10"
-            disabled
-          ></textarea>
+          <textarea name="crypted-message" id="text-crypted" disabled>
+          </textarea>
+          <picture class="empty-alert">
+            <img
+              src="assets/Muneco.svg"
+              alt="Imagen de personaje viendo un diamante"
+            />
+            <h5>
+              Ningún mensaje fue<br />
+              encontrado
+            </h5>
+          </picture>
         </article>
       </section>
       <footer>
-        <a href="https://github.com/JosePhee03" title="Ir a GitHub"
-          >JosePhee03 - GitHub</a
-        >
+        <span class="github-link">
+          <img src="assets/icons/github.svg" alt="Icono de GitHub" />
+          <a href="https://github.com/JosePhee03" title="Ir a GitHub"
+            >JosePhee03 - GitHub</a
+          >
+        </span>
       </footer>
     </main>
+    <div class="gradient-top"></div>
+    <div class="gradient-bottom"></div>
   </body>
+  <script src="src/main.js"></script>
 </html>
