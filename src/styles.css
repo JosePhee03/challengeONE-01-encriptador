@@ -23,6 +23,8 @@
   --gap-size-sm: 8px;
   --gap-size-md: 16px;
   --gap-size-xl: 24px;
+  --gap-size-2xl: 32px;
+  --gap-size-6xl: 64px;
 
   --margin-size-sm: 8px;
   --margin-size-md: 16px;
@@ -35,6 +37,10 @@
   --padding-size-xl: 24px;
   --padding-size-2xl: 32px;
   --padding-size-3xl: 40px;
+
+  --image-size-sm: 1rem;
+  --image-size-md: 1.75rem;
+  --image-size-4xl: 3rem;
 
   --drop-shadow: 0 24px 32px -8px #00000008;
   --rounded: 8px;
@@ -110,6 +116,9 @@ button {
   align-items: center;
 }
 
+button > img {
+  width: var(--image-size-md);
+}
 h1 {
   font-family: "Oleo Script", cursive;
   font-weight: 700;
@@ -159,7 +168,7 @@ section {
 .card {
   display: grid;
   grid-template-columns: auto;
-  grid-template-rows: 5rem minmax(12.5rem, auto);
+  grid-template-rows: 5rem minmax(14rem, auto);
 
   box-shadow: var(--drop-shadow);
   border-radius: var(--rounded);
@@ -255,7 +264,7 @@ select {
 
 #button-copy {
   position: relative;
-  width: 48px;
+  width: 3rem;
   aspect-ratio: 1;
   border-radius: 50%;
 }
@@ -274,7 +283,7 @@ select {
 }
 
 #button-trash {
-  width: 48px;
+  width: 3rem;
   aspect-ratio: 1;
   border-radius: 50%;
 }
@@ -303,6 +312,10 @@ footer {
   color: var(--Dark-blue-300);
 }
 
+.github-link > img {
+  width: var(--image-size-sm);
+}
+
 .github-link > a:hover {
   text-decoration: underline;
 }
@@ -313,7 +326,7 @@ footer {
   justify-content: center;
   align-items: center;
   position: absolute;
-  bottom: 1rem;
+  bottom: 2rem;
 }
 
 .empty-alert > img {
@@ -364,6 +377,26 @@ select:focus {
 }
 
 /*BREAK POINT*/
+@media (min-width: 1439px) {
+  html {
+    font-size: 32px;
+  }
+
+  main {
+    margin-left: var(--margin-size-6xl);
+    margin-right: var(--margin-size-6xl);
+  }
+
+  section {
+    grid-column-gap: var(--gap-size-2xl);
+    margin: auto 0;
+  }
+
+  .card {
+    grid-template-rows: 5rem minmax(20rem, auto);
+  }
+}
+
 @media (max-width: 1023px) {
   html {
     font-size: 13px;
@@ -384,7 +417,7 @@ select:focus {
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   main {
     margin-left: var(--margin-size-md);
     margin-right: var(--margin-size-md);
