@@ -1,6 +1,6 @@
 # Alura - Challenge ONE
 
-![Logo](./assets/alura-challenge.png)
+![page screenshot](./assets/page-screenshot.png)
 
 ## 📚 Sprint 01: Construye un encriptador de texto con Javascript
 
