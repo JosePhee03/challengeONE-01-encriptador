@@ -16,6 +16,12 @@ function render() {
   textAreaMessage.value = state.message;
   textAreaCrypted.value = state.encryptedMessage;
   selectInput.value = state.selected;
+
+  if (state.message === "") {
+    emptyAlert.style.display = "flex";
+  } else {
+    emptyAlert.style.display = "none";
+  }
 }
 
 const ENCRYPTION_KEYS = {
@@ -70,11 +76,6 @@ selectInput.addEventListener("change", (event) => {
 textAreaMessage.addEventListener("input", (event) => {
   const newMessage = event.target.value;
   state.message = newMessage;
-  if (newMessage === "") {
-    emptyAlert.style.display = "flex";
-  } else {
-    emptyAlert.style.display = "none";
-  }
   changeSelectValue(newMessage);
   render();
 });

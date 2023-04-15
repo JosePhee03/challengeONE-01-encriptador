@@ -295,6 +295,12 @@ footer {
 .github-link > a {
   text-decoration: none;
   cursor: pointer;
+
+  font-family: "Inter", sans-serif;
+  font-size: 1rem;
+  font-weight: 300;
+  text-align: center;
+  color: var(--Dark-blue-300);
 }
 
 .github-link > a:hover {
