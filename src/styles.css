@@ -225,6 +225,10 @@ section {
   color: var(--Dark-blue-300);
 }
 
+.card-message > textarea:invalid {
+  color: #f45050;
+}
+
 .card-crypted-message > textarea {
   color: var(--Gray-400);
 }
@@ -320,6 +324,15 @@ footer {
   text-decoration: underline;
 }
 
+.invalid-alert {
+  font-family: "Inter", sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  text-align: center;
+  color: #f45050;
+  position: absolute;
+}
+
 .empty-alert {
   display: flex;
   flex-direction: column;
@@ -333,7 +346,7 @@ footer {
   height: 8rem;
 }
 
-.empty-alert > h5 {
+h5 {
   font-family: "Inter", sans-serif;
   font-size: 1rem;
   font-weight: 700;
@@ -391,10 +404,6 @@ select:focus {
   section {
     grid-column-gap: var(--gap-size-2xl);
     margin: auto 0;
-  }
-
-  .card {
-    grid-template-rows: 5rem minmax(20rem, auto);
   }
 }
 

@@ -5,11 +5,12 @@ const buttonCopy = document.getElementById("button-copy");
 const buttonTrash = document.getElementById("button-trash");
 const textCopy = document.getElementById("text-copy");
 const emptyAlert = document.querySelector(".empty-alert");
+const invalidAlert = document.querySelector(".invalid-alert");
 
 const state = {
-  message: "",
-  encryptedMessage: "",
-  selected: "encrypt",
+  message: textAreaMessage.value,
+  encryptedMessage: textAreaCrypted.value,
+  selected: selectInput.value,
 };
 
 function render() {
@@ -17,8 +18,10 @@ function render() {
   textAreaCrypted.value = state.encryptedMessage;
   selectInput.value = state.selected;
 
-  if (state.message === "") {
+  validateInput(textAreaMessage.value);
+  if (textAreaMessage.value === "") {
     emptyAlert.style.display = "flex";
+    textAreaMessage.style.height = "14rem";
   } else {
     emptyAlert.style.display = "none";
   }
@@ -42,6 +45,29 @@ function encripter(msg) {
   });
   return msgEncrypter.join("");
 }
+
+function changeSelectValue(msg) {
+  if (state.selected === "encrypt")
+    return (state.encryptedMessage = encripter(msg));
+  if (state.selected === "decrypt")
+    return (state.encryptedMessage = decryptor(msg));
+}
+
+function validateInput(msg) {
+  const pattern = new RegExp(
+    /^[a-z0-9!@#\$%\^&\*\(\)\[\]\{\}\|\\;:'",\.\?\/\+\-_=<>`~ñ\s]*$/
+  );
+  if (pattern.test(msg)) {
+    textAreaMessage.setCustomValidity("");
+    invalidAlert.style.display = "none";
+  } else {
+    textAreaMessage.setCustomValidity("Solo letras minúsculas y sin acentos");
+    textAreaCrypted.value = "";
+    invalidAlert.style.display = "block";
+  }
+}
+
+//Listeners
 
 function decryptor(msg) {
   return Object.entries(ENCRYPTION_KEYS).reduce((acc, [key, value]) => {
@@ -70,19 +96,19 @@ selectInput.addEventListener("change", (event) => {
   const option = event.target.value;
   state.selected = option;
   changeSelectValue(state.message);
-  return render();
+  render();
 });
 
 textAreaMessage.addEventListener("input", (event) => {
   const newMessage = event.target.value;
+  const scrollHeight = textAreaMessage.scrollHeight;
+  if (scrollHeight > textAreaMessage.clientHeight) {
+    textAreaMessage.style.height = `${scrollHeight}px`;
+  }
+
   state.message = newMessage;
   changeSelectValue(newMessage);
   render();
 });
 
-function changeSelectValue(msg) {
-  if (state.selected === "encrypt")
-    return (state.encryptedMessage = encripter(msg));
-  if (state.selected === "decrypt")
-    return (state.encryptedMessage = decryptor(msg));
-}
+document.addEventListener("DOMContentLoaded", render);
